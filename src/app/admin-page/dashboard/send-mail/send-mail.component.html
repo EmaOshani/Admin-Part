@@ -1,0 +1,10 @@
+
+<section class="section_form">
+    <form id="consultation-form" class="feed-form" (submit)="sendEmail()">
+      <input required placeholder="To" type="email" [(ngModel)]="to">
+      <input name="subject" required placeholder="Subject" [(ngModel)]="subject">
+      <input name="message" required placeholder="Message" [(ngModel)]="message">
+      <button class="button_submit" type="submit">Send</button>
+    </form>
+  </section>
+  

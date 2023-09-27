@@ -1,0 +1,65 @@
+
+<!-- <div>
+    <span class="img-holder d-inline-block">
+        <img [src]= "pizzas.imageURL"  alt="" class="img-responsive" style="max-height: 200px;">
+       
+    </span>
+   <br>
+    <div>
+        <label> <b>Food Name :</b></label>{{pizzas.name}}
+    </div>
+    <br>
+    <div>
+        <label> <b>Food Price :</b></label>{{pizzas.price}}
+    </div>
+    <br>
+    <div>
+        <label> <b>Food Details : </b></label>{{pizzas.details}}
+    </div>
+<br>
+<button mat-raised-button color="warn" style="width: 200px;">Order Now</button>&nbsp;
+<button mat-raised-button color="red" style="width: 200px;" (click)="addToCart(pizzas.id)">Add To Cart</button>
+</div> -->
+
+<br>
+<div class="container">
+    <div class="row list-project">
+        <div class="col-md-7">
+            <img [src]= "pizzas.imageURL"  alt="" alt="project-image" width="500px" height="500px" class="rounded tablet-top">
+        </div>
+        <!-- / column -->
+        <div class="col-md-5">
+            <div class="project-info-box mt-0">
+                <h5>{{pizzas.name}}</h5>
+                <p>{{pizzas.details}}</p>
+            </div>
+            <!-- / project-info-box -->
+
+            <div class="project-info-box mb-10">
+                <p><b>Food Price :</b> {{pizzas.smallprice}}</p>
+          </div>
+          
+          <div class="project-info-box mb-10">
+          <p><b>Size of Pizza :</b> 
+            <div class="col-xm-8" >
+            <button (click)="selectSize('small', pizzas.smallprice)">
+                <span class="button_top">Small Rs. {{ pizzas.smallprice }}</span>
+            </button>
+        </div>
+        <div class="col-xm-8" >
+            <button (click)="selectSize('medium', pizzas.mediumprice)">
+                <span class="button_top">Medium Rs. {{ pizzas.mediumprice }}</span>
+            </button></div>
+            <div class="col-xm-8" >
+            <button (click)="selectSize('large', pizzas.largeprice)">
+                <span class="button_top">Large Rs. {{ pizzas.largeprice }}</span>
+            </button>
+            </div>
+              
+            
+    </div>
+          
+        </div>
+        <!-- / column -->
+    </div>
+    <!-- / row list-project -->

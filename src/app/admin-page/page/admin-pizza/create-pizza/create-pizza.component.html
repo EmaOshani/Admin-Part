@@ -1,0 +1,91 @@
+<!-- <h4>Add New Item</h4>
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>name</label>
+        <input type="text" class="form-control" id = "name"
+        [(ngModel)]= "pizzas.name" name = "name" required="">
+    </div>
+
+    <div class="form-group">
+        <label>price</label>
+        <input type="number" class="form-control" id = "price"
+        [(ngModel)]= "pizzas.price" name = "price" required="">
+    </div>
+
+    <div class="form-group">
+        <label>image url</label>
+        <input type="text" class="form-control" id = "imageURL"
+        [(ngModel)]= "pizzas.imageURL" name = "imageURL" required="">
+    </div>
+
+    <div class="form-group">
+        <label>details</label>
+        <input type="text" class="form-control" id = "details"
+        [(ngModel)]= "pizzas.details" name = "details" required="">
+    </div>
+
+    <br>
+    <button class="btn btn-danger" type="submit">Submit</button>
+</form> -->
+<br>
+<h4 class="h4"><u>Add New Item</u></h4>
+<br><br><br>
+<div class="container">
+
+<form  [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+
+    <div class="form-group" [ngClass]="{'error-input':formGroup.get('name')?.invalid && formGroup.get('name')?.touched}" for="name">
+    <label class="label"> Food Name</label>
+        <input type="text" class="input" id = "name"
+        [(ngModel)]="pizzas.name" name = "name" formControlName="name"  required="">
+        <div *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched" class="error-message">
+            <span *ngIf="formGroup.get('name')?.errors?.['required']">Full Name is required.</span>
+            <span *ngIf="formGroup.get('name')?.errors?.['invalidName']">Invalid name format.</span>
+            <span *ngIf="formGroup.get('name')?.errors?.['insufficientWords']">Full Name is required</span>
+            </div>
+        </div>
+    
+        
+        <div class="form-group" [ngClass]="{'error-input':formGroup.get('smallprice')?.invalid && formGroup.get('smallprice')?.touched}" >
+        <label class="label">Small Price</label>
+        <input type="text" class="input" id="smallprice" formControlName="smallprice" [(ngModel)]="pizzas.smallprice" name="smallprice" min="10" max="9999">
+        <div *ngIf="formGroup.get('smallprice')?.invalid && formGroup.get('smallprice')?.touched" class="error-message">
+        <span *ngIf="formGroup.get('smallprice')?.errors?.['required']">Not required price.</span>
+        <span *ngIf="formGroup.get('smallprice')?.errors?.['invalidName']">Invalid number format.</span>
+        </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'error-input':formGroup.get('mediumprice')?.invalid && formGroup.get('mediumprice')?.touched}" >
+        <label class="label">Medium Price</label>
+        <input type="number" class="input" id="mediumprice"  formControlName="mediumprice" [(ngModel)]="pizzas.mediumprice" name="mediumprice" min="10" max="9999" >
+        <div *ngIf="formGroup.get('mediumprice')?.invalid && formGroup.get('mediumprice')?.touched" class="error-message">
+            <span *ngIf="formGroup.get('mediumprice')?.errors?.['required']">Not required price.</span>
+            <span *ngIf="formGroup.get('mediumprice')?.errors?.['invalidName']">Invalid number format.</span>
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'error-input':formGroup.get('largeprice')?.invalid && formGroup.get('largeprice')?.touched}" >
+        <label class="label">Large Price</label>
+        <input type="number" class="input" id="largeprice" [(ngModel)]="pizzas.largeprice" name="largeprice" min="10" max="9999" >
+        <div *ngIf="formGroup.get('largeprice')?.invalid && formGroup.get('largeprice')?.touched" class="error-message">
+            <span *ngIf="formGroup.get('largeprice')?.errors?.['required']">Not required price.</span>
+            <span *ngIf="formGroup.get('largeprice')?.errors?.['invalidName']">Invalid number format.</span>
+            </div>
+        </div>
+
+
+        <label class="label">Image LINK</label>
+        <input type="text" class="input" id = "imageURL"
+        [(ngModel)]= "pizzas.imageURL" name = "imageURL" required="">
+       
+ 
+        <label class="label">Food Details</label>
+        <input type="text" class="input" id = "details"
+        [(ngModel)]= "pizzas.details" name = "details" required="">
+   
+
+    <br>
+    <button type="submit" [disabled]="formGroup.invalid" >SUBMIT</button>
+</form>
+

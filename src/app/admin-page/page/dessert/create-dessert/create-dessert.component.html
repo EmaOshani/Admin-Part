@@ -1,0 +1,42 @@
+<br>
+<h4 class="h4"><u>Add New Item</u></h4>
+<div class="container">
+
+<form (ngSubmit)="onSubmit()" class="form">
+
+    <label class="label"> Food category</label>
+    <select class="input" type="text"  required placeholder="Road"
+    [(ngModel)]= "desserts.item" name = "item">
+    <option value="Burger">Burger</option>
+    <option value="Submarine">Submarine</option>
+    <option value="Crispy Chicken">Crispy Chicken</option>
+    <option value="Beverages" >Beverages</option>
+    <option value="Desserts">Desserts</option>
+    
+</select>
+
+    
+    <label class="label"> Food Name</label>
+        <input type="text" class="input" id = "name"
+        [(ngModel)]= "desserts.name" name = "name" required="">
+        
+
+        <label class="label">Price</label>
+        <input type="number" class="input" id = "largeprice"
+        [(ngModel)]= "desserts.price" name = "price" required="">
+       
+        <label class="label">Image LINK</label>
+        <input type="text" class="input" id = "imageURL"
+        [(ngModel)]= "desserts.imageURL" name = "imageURL" required="">
+       
+ 
+        <label class="label">Food Details</label>
+        <input type="text" class="input" id = "details"
+        [(ngModel)]= "desserts.details" name = "details" required="">
+   
+
+    <br>
+    <button type="submit">SUBMIT</button>
+</form>
+</div>
+
